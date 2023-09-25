@@ -11,6 +11,9 @@ import dynamic from "next/dynamic";
 const DivisionGroupsDemo = dynamic(() =>
   import("@/components/DivisionGroupsDemo")
 );
+const CircularColorsDemo = dynamic(() =>
+  import("@/components/CircularColorsDemo")
+);
 
 export async function generateMetadata({ params }) {
   const { postSlug } = params;
@@ -26,6 +29,7 @@ export async function generateMetadata({ params }) {
 const components = {
   pre: (props) => <CodeSnippet {...props} />,
   DivisionGroupsDemo,
+  CircularColorsDemo,
 };
 
 async function BlogPost({ params }) {
