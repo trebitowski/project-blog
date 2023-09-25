@@ -6,6 +6,11 @@ import styles from "./postSlug.module.css";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/helpers/file-helpers";
 import CodeSnippet from "@/components/CodeSnippet";
+import dynamic from "next/dynamic";
+
+const DivisionGroupsDemo = dynamic(() =>
+  import("@/components/DivisionGroupsDemo")
+);
 
 export async function generateMetadata({ params }) {
   const { postSlug } = params;
@@ -20,6 +25,7 @@ export async function generateMetadata({ params }) {
 
 const components = {
   pre: (props) => <CodeSnippet {...props} />,
+  DivisionGroupsDemo,
 };
 
 async function BlogPost({ params }) {
